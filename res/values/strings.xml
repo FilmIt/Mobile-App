@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CamTest</string>
+    <string name="app_name">FilmIT</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_edit_screen">Edit Video</string>
+    <string name="title_activity_main_menu">FilmIT</string>
 
 </resources>
