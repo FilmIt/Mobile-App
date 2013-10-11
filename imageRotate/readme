@@ -1,0 +1,3 @@
+To run this .apk on your android device,
+it requires a pic named "photo.jpg" in your sdcard as path given is "/sdcard/photo.jpg"
+This .jpg image is being converted into bitmap within the code. 
