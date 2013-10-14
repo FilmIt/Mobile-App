@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -49,14 +50,15 @@ public class EditScreenActivity extends Activity {
 		mediaController.setAnchorView(videoView);
 		
 		Bundle extras = getIntent().getExtras(); 
-		String uri;
+		String uri = null;
 
 		if (extras != null) {
-		    uri = extras.getString("uri");
-		    // and get whatever type user account id is
+		    uri = extras.getString("path");
+		    Log.d("VIDEO PATH: ", uri);
+		    
 		}
 	
-		Uri video = Uri.parse("uri");
+		Uri video = Uri.parse(uri);
 		videoView.setMediaController(mediaController);
 		videoView.setVideoURI(video);
 		
