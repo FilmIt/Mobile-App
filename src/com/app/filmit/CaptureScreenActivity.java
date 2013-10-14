@@ -56,6 +56,25 @@ public class CaptureScreenActivity extends Activity {
 		
 	}
 	
+	@Override
+	protected void onPause() {
+	    super.onPause();
+	    try
+	    {    
+	        // release the camera immediately on pause event   
+	        //releaseCamera();
+	         camera.stopPreview(); 
+	         camera.setPreviewCallback(null);
+	         cameraPreview.getHolder().removeCallback(cameraPreview);
+	         camera.release();
+	         camera = null;
+
+	    }
+	    catch(Exception e)
+	    {
+	        e.printStackTrace();
+	    }
+	}
 	protected void onResume() {
 		super.onResume();
 		camera = getCameraInstance();
@@ -78,7 +97,7 @@ public class CaptureScreenActivity extends Activity {
 		                mediaRecorder.stop();  // stop the recording
 		                
 		                releaseMediaRecorder(); // release the MediaRecorder object
-		                releaseCamera();
+		               // releaseCamera();
 		                
 		                // inform the user that recording has stopped
 		                recordButton.setText("Record!");

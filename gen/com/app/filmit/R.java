@@ -25,21 +25,21 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f080015;
-        public static final int button1=0x7f08000c;
-        public static final int button2=0x7f08000e;
+        public static final int button1=0x7f08000d;
+        public static final int button2=0x7f08000f;
         public static final int button3=0x7f080006;
         public static final int button4=0x7f08000a;
-        public static final int button5=0x7f08000f;
+        public static final int button5=0x7f08000c;
         public static final int button6=0x7f080007;
-        public static final int button7=0x7f08000d;
+        public static final int button7=0x7f08000e;
         public static final int button8=0x7f080009;
         public static final int button9=0x7f080008;
         public static final int button_capture=0x7f080002;
         public static final int camera_front_back=0x7f080003;
         public static final int camera_preview=0x7f080000;
-        public static final int capture_select_button=0x7f080011;
+        public static final int capture_select_button=0x7f080010;
         public static final int face_detection=0x7f080004;
-        public static final int gallery_select_button=0x7f080010;
+        public static final int gallery_select_button=0x7f080011;
         public static final int inner_layout=0x7f080001;
         public static final int item1=0x7f080012;
         public static final int item2=0x7f080013;

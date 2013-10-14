@@ -59,9 +59,9 @@ public class EditScreenActivity extends Activity {
 		}
 	
 		Uri video = Uri.parse(uri);
-		videoView.setMediaController(mediaController);
-		videoView.setVideoURI(video);
 		
+		videoView.setVideoURI(video);
+		videoView.setMediaController(mediaController);
 		videoView.start();
 	}
 	public void showPopup(View v) {

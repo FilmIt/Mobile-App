@@ -66,13 +66,5 @@ public class MainMenuActivity extends Activity {
 		return true;
 	}
 	
-	public String getRealPathFromURI(Uri contentUri) {
-        String[] proj = { MediaStore.Video.Media.DATA };
-        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Video.Media.DATA);
-        cursor.moveToFirst();
-        String toReturn = cursor.getString(column_index);
-        return toReturn;
-    }
 
 }

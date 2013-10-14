@@ -8,20 +8,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainMenuActivity" >
 
+    <Button
+        android:id="@+id/capture_select_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Capture" />
 
     <Button
         android:id="@+id/gallery_select_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-    	android:gravity="center"
+        android:layout_above="@+id/capture_select_button"
+        android:layout_alignLeft="@+id/capture_select_button"
+        android:gravity="center"
         android:text="Gallery" />
-
-    <Button
-        android:id="@+id/capture_select_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="48dp"
-        android:text="Capture" />
 
 </RelativeLayout>
