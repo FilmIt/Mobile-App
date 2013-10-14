@@ -34,6 +34,7 @@ public class CaptureScreenActivity extends Activity {
 	boolean isCameraBack= true;
 	boolean isFaceDetection = false;
 	MediaRecorder mediaRecorder;
+	String outputFilePath = "";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,22 @@ public class CaptureScreenActivity extends Activity {
 		setContentView(R.layout.activity_capture_screen);
 		//Intent myIntent = new Intent(MainActivity.this, AudioRecordTest.class);
 		//this.startActivity(myIntent);
+//		camera = getCameraInstance();
+//		if(camera != null) {
+//			cameraPreview = new CameraPreview(this, camera);
+//			FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
+//			preview.addView(cameraPreview);
+//		}
+//		else
+//			Log.d(TAG, "Camera Returned Null");
+		
+		setButtonListeners();
+		
+		
+	}
+	
+	protected void onResume() {
+		super.onResume();
 		camera = getCameraInstance();
 		if(camera != null) {
 			cameraPreview = new CameraPreview(this, camera);
@@ -49,10 +66,6 @@ public class CaptureScreenActivity extends Activity {
 		}
 		else
 			Log.d(TAG, "Camera Returned Null");
-		
-		setButtonListeners();
-		
-		
 	}
 	
 	void setButtonListeners() {
@@ -63,11 +76,17 @@ public class CaptureScreenActivity extends Activity {
 				 if (isRecording) {
 		                // stop recording and release camera
 		                mediaRecorder.stop();  // stop the recording
+		                
 		                releaseMediaRecorder(); // release the MediaRecorder object
-		              
+		                releaseCamera();
+		                
 		                // inform the user that recording has stopped
 		                recordButton.setText("Record!");
 		                isRecording = false;
+		                
+		                Intent i = new Intent(getApplicationContext(), EditScreenActivity.class);
+		                i.putExtra("path", outputFilePath);
+		                startActivity(i);
 		            } 
 				 else {
 		                // initialize video camera
@@ -209,7 +228,8 @@ public class CaptureScreenActivity extends Activity {
 		
 		mediaRecorder.setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH));
 		
-		mediaRecorder.setOutputFile(this.getOutputMediaFile().toString());
+		outputFilePath = this.getOutputMediaFile().toString();
+		mediaRecorder.setOutputFile(outputFilePath);
 		
 		mediaRecorder.setPreviewDisplay(cameraPreview.getHolder().getSurface());
 		

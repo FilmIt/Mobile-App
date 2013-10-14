@@ -55,7 +55,6 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 	public void surfaceCreated(SurfaceHolder holder) {
 		
 		try {
-			
 			camera.setPreviewDisplay(surfaceHolder);
 			camera.startPreview();
 		}
@@ -66,7 +65,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
-		camera.release();
+		//camera.release();
 		
 	}
 
