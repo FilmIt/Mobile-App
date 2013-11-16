@@ -24,10 +24,13 @@ public class MainMenuActivity extends Activity {
 		galleryButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent();
-			    intent.setType("video/*");
-			    intent.setAction(Intent.ACTION_PICK);
-			    startActivityForResult(Intent.createChooser(intent,"Select Any"), PICK_VIDEO);
+				
+				startActivity(new Intent(MainMenuActivity.this, IntroScreenActivity.class));
+				
+//				Intent intent = new Intent();
+//			    intent.setType("video/*");
+//			    intent.setAction(Intent.ACTION_PICK);
+//			    startActivityForResult(Intent.createChooser(intent,"Select Any"), PICK_VIDEO);
 				
 			}
 		});

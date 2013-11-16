@@ -14,10 +14,55 @@
        android:layout_height="fill_parent"
        android:layout_alignParentTop="true" />
 
+   
+
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/videoView1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+        
+     
+
+        <Button
+            android:id="@+id/button1"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:text="Undo" />
+        
+          <Button
+            android:id="@+id/button9"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:text="Reset" />
+
+        <Button
+            android:id="@+id/save_button"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+
+        <Button
+            android:id="@+id/button2"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="share" />
+        
+        
+    </LinearLayout>
+
+  
+
+     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/videoView1"
         android:layout_alignTop="@+id/videoView1"
         android:orientation="vertical" >
 
@@ -27,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="showPopup"
-            android:text="BT" />
+            android:text="Settings" />
 
         <Button
             android:id="@+id/button6"
@@ -58,51 +103,5 @@
             android:layout_height="wrap_content"
             android:text="VT" />
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical" >
-        
-          <Button
-        android:id="@+id/button5"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/linearLayout1"
-        android:layout_below="@+id/linearLayout1"
-       
-        android:text="Settings" />
-
-        <Button
-            android:id="@+id/button1"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="78dp"
-            android:layout_height="wrap_content"
-            android:text="Music" />
-
-        <Button
-            android:id="@+id/button7"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Save" />
-
-        <Button
-            android:id="@+id/button2"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="share" />
-        
-        
-    </LinearLayout>
-
-  
-
 
 </RelativeLayout>
