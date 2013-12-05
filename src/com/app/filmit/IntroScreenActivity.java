@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -120,8 +121,11 @@ public class IntroScreenActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
+		ActionBar actionBar = getActionBar();
+        actionBar.hide();
 		getMenuInflater().inflate(R.menu.intro_screen, menu);
 		
+
 		return true;
 	}
 	
@@ -169,10 +173,7 @@ public class IntroScreenActivity extends Activity {
 				// get layout from mobile.xml
 				gridView = inflater.inflate(R.layout.gridview_element, null);
 
-				// set value into textview
-				TextView textView = (TextView) gridView
-						.findViewById(R.id.vide_name);
-				textView.setText(videos.get(position).name);
+				
 
 				// set image based on selected text
 				ImageView imageView = (ImageView) gridView

@@ -7,22 +7,20 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".IntroScreenActivity"
-    
-    >
-    
+    tools:context=".IntroScreenActivity" >
 
-    <GridView
-        android:id="@+id/gridview"
-        android:layout_width="300dp"
-        android:layout_height="320dp"
-        android:columnWidth="120dp"
-        android:gravity="center"
-        android:horizontalSpacing="20dp"
-        android:numColumns="2"
-        android:stretchMode="spacingWidthUniform"
-        android:verticalSpacing="40dp" >
-    </GridView>
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/ic_launcher" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -30,8 +28,8 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-          android:layout_marginLeft="5dp"
-        android:layout_alignRight="@+id/gridview" >
+        android:layout_alignRight="@+id/gridview"
+        android:layout_marginLeft="5dp" >
 
         <ImageView
             android:id="@+id/folder_button"
@@ -54,5 +52,28 @@
             android:layout_marginRight="36dp"
             android:src="@drawable/chat_check" />
     </LinearLayout>
+
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        android:layout_alignLeft="@+id/relativeLayout1"
+        android:layout_below="@+id/relativeLayout1"
+        android:columnWidth="100dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp" >
+
+    </GridView>
+
+    <ImageView
+        android:id="@+id/video_capture_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/gridview"
+        android:src="@drawable/videocamera" />
 
 </RelativeLayout>
