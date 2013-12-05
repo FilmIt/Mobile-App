@@ -1,5 +1,7 @@
 package com.app.filmit;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -9,12 +11,17 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.BaseColumns;
 import android.provider.MediaStore;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.view.InflateException;
 import android.view.LayoutInflater;
+import android.view.LayoutInflater.Factory;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -71,6 +78,7 @@ public class IntroScreenActivity extends Activity {
 			}
 		});
 	}
+	
 
 	private void loaddata() {
 		ContentResolver cr = getContentResolver();
@@ -113,6 +121,7 @@ public class IntroScreenActivity extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.intro_screen, menu);
+		
 		return true;
 	}
 	
@@ -179,5 +188,4 @@ public class IntroScreenActivity extends Activity {
 		}
 
 	}
-
-}
+	}	

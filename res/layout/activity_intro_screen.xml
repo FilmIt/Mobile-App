@@ -2,50 +2,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg31"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".IntroScreenActivity" >
+    tools:context=".IntroScreenActivity"
+    
+    >
+    
 
     <GridView
         android:id="@+id/gridview"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:columnWidth="100dp"
-        android:layout_marginBottom="50dp"
+        android:layout_width="300dp"
+        android:layout_height="320dp"
+        android:columnWidth="120dp"
         android:gravity="center"
-        android:horizontalSpacing="10dp"
+        android:horizontalSpacing="20dp"
         android:numColumns="2"
         android:stretchMode="spacingWidthUniform"
-        android:verticalSpacing="20dp" />
+        android:verticalSpacing="40dp" >
+    </GridView>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-  		android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" >
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+          android:layout_marginLeft="5dp"
+        android:layout_alignRight="@+id/gridview" >
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Folder" />
+        <ImageView
+            android:id="@+id/folder_button"
+            android:layout_width="70dp"
+            android:layout_height="75dp"
+            android:layout_marginRight="36dp"
+            android:src="@drawable/folder_check" />
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Profile" />
+        <ImageView
+            android:id="@+id/profile_button"
+            android:layout_width="70dp"
+            android:layout_height="75dp"
+            android:layout_marginRight="36dp"
+            android:src="@drawable/profile_check" />
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Chat" />
+        <ImageView
+            android:id="@+id/chat_button"
+            android:layout_width="70dp"
+            android:layout_height="75dp"
+            android:layout_marginRight="36dp"
+            android:src="@drawable/chat_check" />
     </LinearLayout>
-
-  
 
 </RelativeLayout>
