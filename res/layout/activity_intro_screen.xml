@@ -36,21 +36,21 @@
             android:layout_width="70dp"
             android:layout_height="75dp"
             android:layout_marginRight="36dp"
-            android:src="@drawable/folder_check" />
+            android:src="@drawable/folder_icon_final" />
 
         <ImageView
             android:id="@+id/profile_button"
             android:layout_width="70dp"
             android:layout_height="75dp"
             android:layout_marginRight="36dp"
-            android:src="@drawable/profile_check" />
+            android:src="@drawable/profile_icon_final" />
 
         <ImageView
             android:id="@+id/chat_button"
             android:layout_width="70dp"
             android:layout_height="75dp"
             android:layout_marginRight="36dp"
-            android:src="@drawable/chat_check" />
+            android:src="@drawable/chat_icon_final" />
     </LinearLayout>
 
     <GridView
