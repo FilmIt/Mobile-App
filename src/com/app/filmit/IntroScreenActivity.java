@@ -4,6 +4,8 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
+import com.app.filmit.utils.Constants;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -86,9 +88,10 @@ public class IntroScreenActivity extends Activity {
 		String[] proj = { BaseColumns._ID,
 				MediaStore.Video.Media.DISPLAY_NAME , 
 				MediaStore.Video.Media.DATA};
-
+		String selection = "" + MediaStore.Video.Media.DURATION + "<= " + Constants.DURATION_LIMIT;
 		Cursor c = cr.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, proj,
-				null, null, null);
+				selection, null, null);
+		
 		if (c.moveToFirst()) {
 			do {
 				int id = c.getInt(0);
@@ -166,26 +169,19 @@ public class IntroScreenActivity extends Activity {
 
 		// create a new ImageView for each item referenced by the Adapter
 		public View getView(int position, View convertView, ViewGroup parent) {
-			LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-				View gridView;
-				if(convertView == null) {
-				// get layout from mobile.xml
-				gridView = inflater.inflate(R.layout.gridview_element, null);
-
-				
-
-				// set image based on selected text
-				ImageView imageView = (ImageView) gridView
-						.findViewById(R.id.thumnail);
-				imageView.setImageBitmap(videos.get(position).bitmap);
-
-				}
-				
-				else 
-					gridView = (View)convertView;
-			return gridView;
-
+			View v;
+		    if (convertView == null) {  // if it's not recycled, initialize some attributes
+		        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(     Context.LAYOUT_INFLATER_SERVICE );
+		        v = inflater.inflate(R.layout.gridview_element, parent, false);
+		    } else {
+		        v = (View) convertView;
+		    }
+		   
+		    ImageView image = (ImageView)v.findViewById(R.id.thumnail);
+		    image.setImageBitmap(videos.get(position).bitmap);
+		    return v;
+			
 		}
 
 	}

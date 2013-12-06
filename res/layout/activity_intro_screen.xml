@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".IntroScreenActivity" >
- 
+
     <RelativeLayout
         android:id="@+id/relativeLayout1"
         android:layout_width="wrap_content"
@@ -36,21 +36,21 @@
             android:layout_width="70dp"
             android:layout_height="75dp"
             android:layout_marginRight="36dp"
-            android:src="@drawable/folder_icon_final" />
+            android:src="@drawable/folder_check" />
 
         <ImageView
             android:id="@+id/profile_button"
             android:layout_width="70dp"
             android:layout_height="75dp"
             android:layout_marginRight="36dp"
-            android:src="@drawable/profile_icon_final" />
+            android:src="@drawable/profile_check" />
 
         <ImageView
             android:id="@+id/chat_button"
             android:layout_width="70dp"
             android:layout_height="75dp"
             android:layout_marginRight="36dp"
-            android:src="@drawable/chat_icon_final" />
+            android:src="@drawable/chat_check" />
     </LinearLayout>
 
     <GridView
@@ -74,6 +74,6 @@
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/gridview"
-        android:src="@drawable/videocamera" />
+        android:src="@drawable/folder_check" />
 
 </RelativeLayout>
