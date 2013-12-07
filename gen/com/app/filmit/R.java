@@ -21,17 +21,18 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int bg31=0x7f020000;
-        public static final int chat_check=0x7f020001;
-        public static final int folder_check=0x7f020002;
-        public static final int ic_camera=0x7f020003;
+        public static final int background=0x7f020000;
+        public static final int ic_capturevideo=0x7f020001;
+        public static final int ic_chat=0x7f020002;
+        public static final int ic_folder=0x7f020003;
         public static final int ic_launcher=0x7f020004;
-        public static final int profile_check=0x7f020005;
+        public static final int ic_play=0x7f020005;
+        public static final int ic_profile=0x7f020006;
     }
     public static final class id {
-        public static final int action_camera=0x7f08001e;
-        public static final int action_search=0x7f080020;
-        public static final int action_settings=0x7f08001f;
+        public static final int action_camera=0x7f08001c;
+        public static final int action_search=0x7f08001e;
+        public static final int action_settings=0x7f08001d;
         public static final int button1=0x7f080007;
         public static final int button2=0x7f08000a;
         public static final int button3=0x7f08000b;
@@ -42,26 +43,24 @@ public final class R {
         public static final int button_capture=0x7f080002;
         public static final int camera_front_back=0x7f080003;
         public static final int camera_preview=0x7f080000;
-        public static final int capture_select_button=0x7f080016;
-        public static final int chat_button=0x7f080014;
+        public static final int capture_select_button=0x7f080014;
+        public static final int chat_button=0x7f080013;
         public static final int face_detection=0x7f080004;
-        public static final int folder_button=0x7f080012;
-        public static final int gallery_select_button=0x7f080017;
-        public static final int gridview=0x7f080011;
-        public static final int imageView1=0x7f080010;
+        public static final int folder_button=0x7f080011;
+        public static final int gallery_select_button=0x7f080015;
+        public static final int gridview=0x7f080010;
         public static final int inner_layout=0x7f080001;
-        public static final int item1=0x7f08001b;
-        public static final int item2=0x7f08001c;
-        public static final int item3=0x7f08001d;
+        public static final int item1=0x7f080019;
+        public static final int item2=0x7f08001a;
+        public static final int item3=0x7f08001b;
         public static final int linearLayout1=0x7f080006;
-        public static final int name=0x7f080018;
-        public static final int profile_button=0x7f080013;
-        public static final int relativeLayout1=0x7f08000f;
+        public static final int name=0x7f080016;
+        public static final int profile_button=0x7f080012;
         public static final int save_button=0x7f080009;
-        public static final int textView1=0x7f080019;
-        public static final int thumnail=0x7f08001a;
+        public static final int textView1=0x7f080017;
+        public static final int thumnail=0x7f080018;
         public static final int videoView1=0x7f080005;
-        public static final int video_capture_button=0x7f080015;
+        public static final int video_capture_button=0x7f08000f;
     }
     public static final class layout {
         public static final int activity_capture_screen=0x7f030000;
