@@ -180,6 +180,9 @@ public class IntroScreenActivity extends Activity {
 		   
 		    ImageView image = (ImageView)v.findViewById(R.id.thumnail);
 		    image.setImageBitmap(videos.get(position).bitmap);
+		    
+		    ImageView play = (ImageView)v.findViewById(R.id.play);
+		    play.setImageDrawable(getResources().getDrawable(R.drawable.ic_play));
 		    return v;
 			
 		}

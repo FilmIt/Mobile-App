@@ -2,12 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-   
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-       android:background="@android:color/black"
     tools:context=".EditScreenActivity" >
 
    <VideoView
@@ -18,77 +16,94 @@
        android:layout_centerInParent="true"
      />
 
+   
+
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:orientation="vertical"
-        android:background="#55ff5a70"
-        android:visibility="visible" >
+        android:orientation="vertical" >
+        
+     
 
-        <ImageButton
+        <Button
+            android:id="@+id/button1"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:text="Undo" />
+        
+          <Button
+            android:id="@+id/button9"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:text="Reset" />
+
+        <Button
             android:id="@+id/save_button"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_save" />
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
 
-        <ImageButton
-            android:id="@+id/undo_button"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_undo" />
-
-        <ImageButton
-            android:id="@+id/setting_button"
-           android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_settings" />
-
+        <Button
+            android:id="@+id/button2"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="share" />
+        
+        
     </LinearLayout>
 
+  
+
      <LinearLayout
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentBottom="true"
-         android:layout_alignParentLeft="true"
-         android:layout_alignParentTop="true"
-         android:background="#55ff5a70"
-         android:orientation="vertical" >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+          android:layout_alignParentTop="true"
+        android:orientation="vertical" >
 
-         <Button
-             android:id="@+id/button6"
-             style="?android:attr/buttonStyleSmall"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:onClick="showPopup"
-             android:text="AT" />
+        <Button
+            android:id="@+id/button3"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showPopup"
+            android:text="Settings" />
 
-         <Button
-             android:id="@+id/button9"
-             style="?android:attr/buttonStyleSmall"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="EF" />
+        <Button
+            android:id="@+id/button6"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showPopup"
+            android:text="AT" />
 
-         <Button
-             android:id="@+id/button8"
-             style="?android:attr/buttonStyleSmall"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="CE" />
+        <Button
+            android:id="@+id/button9"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EF" />
 
-         <Button
-             android:id="@+id/button4"
-             style="?android:attr/buttonStyleSmall"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="VT" />
-     </LinearLayout>
+        <Button
+            android:id="@+id/button8"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CE" />
+
+        <Button
+            android:id="@+id/button4"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VT" />
+    </LinearLayout>
 
 </RelativeLayout>
