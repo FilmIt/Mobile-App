@@ -14,10 +14,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <ImageView
+        <ImageButton
             android:id="@+id/video_capture_button"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@android:color/transparent"
             android:src="@drawable/ic_capturevideo" />
 
         <GridView
@@ -42,25 +43,28 @@
             android:layout_marginTop="40dp" 
             >
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/folder_button"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginRight="20dp"
+                android:background="@android:color/transparent"
                 android:src="@drawable/ic_folder" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/profile_button"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginRight="20dp"
+                android:background="@android:color/transparent"
                 android:src="@drawable/ic_profile" />
 
-            <ImageView
+            <ImageButton
                 android:id="@+id/chat_button"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginRight="20dp"
+                android:background="@android:color/transparent"
                 android:src="@drawable/ic_chat" />
         </LinearLayout>
 
