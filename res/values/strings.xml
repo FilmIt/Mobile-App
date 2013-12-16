@@ -8,5 +8,7 @@
     <string name="title_activity_main_menu">FilmIT</string>
     <string name="title_activity_intro_screen">FilmKit</string>
     <string name="title_activity_video_frames">VideoFramesActivity</string>
+    <string name="title_activity_video_play">VideoPlayActivity</string>
+    <string name="description">Media Controls</string>
 
 </resources>

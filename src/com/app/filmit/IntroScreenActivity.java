@@ -74,7 +74,7 @@ public class IntroScreenActivity extends Activity {
 		gridview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
-				 Intent intent = new Intent(getApplicationContext(), EditScreenActivity.class);
+				 Intent intent = new Intent(getApplicationContext(), VideoPlayerActivity.class);
 	                intent.putExtra("path", videos.get(position).path);
 	                startActivity(intent);
 				
