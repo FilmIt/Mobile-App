@@ -16,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.widget.AbsoluteLayout;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.PopupMenu;
 import android.widget.VideoView;
@@ -25,7 +26,7 @@ public class EditScreenActivity extends Activity {
 	MediaController mediaController;
 	PopupMenu popup;
 	boolean themeMenuOpen = false;
-	
+	boolean adjustmentMenuOpen = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -117,15 +118,20 @@ public class EditScreenActivity extends Activity {
 	    inflater.inflate(R.menu.actions, popup.getMenu());
 	    popup.show();
 	}
-	 public void showThemesMenu(View v) {   
+	 public void showThemesMenu(View v) {
+		 AbsoluteLayout tm = (AbsoluteLayout) findViewById(R.id.effects_layout);
+		 
 		 if(!themeMenuOpen){
-		  AbsoluteLayout tm = (AbsoluteLayout) findViewById(R.id.themes_layout);
+		  
 		  tm.setVisibility(tm.VISIBLE);
 		  themeMenuOpen = true;
 		 }
 		 else{
-			 AbsoluteLayout tm = (AbsoluteLayout) findViewById(R.id.themes_layout);
 			 tm.setVisibility(tm.INVISIBLE);
 			 themeMenuOpen = false;
 		 }
-}}
+		 }
+	
+
+
+}

@@ -19,7 +19,7 @@
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="#55E4287C"
@@ -75,41 +75,29 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginLeft="2dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
         android:background="#55E4287C"
         android:orientation="vertical" >
 
         <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_addjustment" />
-
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_addjustment" />
-
-        <ImageButton
             android:id="@+id/effect_button"
-            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="showThemesMenu"
+            android:layout_marginTop="10dp"
             android:alpha="0.8"
             android:background="@android:color/transparent"
+            android:onClick="showThemesMenu"
             android:src="@drawable/ic_effects" />
 
         <ImageButton
             android:id="@+id/adjustment_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             android:layout_marginTop="10dp"
+            android:alpha="0.8"
+            android:background="@android:color/transparent"
+           
             android:src="@drawable/ic_addjustment" />
 
         <Button
@@ -138,8 +126,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginLeft="14dp"
         android:layout_toRightOf="@+id/linearLayout2"
-        layout="@layout/themes"
+        layout="@layout/effects"
         android:visibility="invisible" />
 
 </RelativeLayout>
