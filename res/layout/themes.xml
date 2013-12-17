@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/themes_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/pixelate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+             android:background="#f177a0"
+            android:src="@drawable/ic_pixelate" />
+
+        <ImageButton
+            android:id="@+id/noise_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:background="#f177a0"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_noise_flea" />
+
+        <ImageButton
+            android:id="@+id/invert_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:background="#f177a0"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_invert_effect" />
+
+        <ImageButton
+            android:id="@+id/tint_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:background="#f177a0"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_tint" />
+
+        <ImageButton
+            android:id="@+id/embose_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#f177a0"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_embose_effect" />
+
+    </LinearLayout>
+
+</AbsoluteLayout>

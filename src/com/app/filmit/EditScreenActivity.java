@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AbsoluteLayout;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.MediaController;
@@ -23,6 +24,7 @@ public class EditScreenActivity extends Activity {
 	VideoView videoView;
 	MediaController mediaController;
 	PopupMenu popup;
+	boolean themeMenuOpen = false;
 	
 
 	@Override
@@ -115,5 +117,15 @@ public class EditScreenActivity extends Activity {
 	    inflater.inflate(R.menu.actions, popup.getMenu());
 	    popup.show();
 	}
-
-}
+	 public void showThemesMenu(View v) {   
+		 if(!themeMenuOpen){
+		  AbsoluteLayout tm = (AbsoluteLayout) findViewById(R.id.themes_layout);
+		  tm.setVisibility(tm.VISIBLE);
+		  themeMenuOpen = true;
+		 }
+		 else{
+			 AbsoluteLayout tm = (AbsoluteLayout) findViewById(R.id.themes_layout);
+			 tm.setVisibility(tm.INVISIBLE);
+			 themeMenuOpen = false;
+		 }
+}}

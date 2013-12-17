@@ -2,101 +2,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@android:color/black"
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-   android:background="@android:color/black"
     tools:context=".EditScreenActivity" >
 
-   <VideoView
-       android:id="@+id/videoView1"
-       android:layout_width="fill_parent"
-       android:layout_height="fill_parent"
-       android:gravity="center"
-       android:layout_centerInParent="true"
-     />
-
-   
+    <VideoView
+        android:id="@+id/videoView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
-          android:background="#55E4287C"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        
-       
+        android:background="#55E4287C"
         android:orientation="vertical" >
 
         <ImageButton
             android:id="@+id/music_button"
-             android:layout_width="@dimen/editingScr_buttons_width"
-            android:layout_height="@dimen/editingScr_buttons_height"
-            android:layout_marginTop="0.5dp"
-            android:background="@android:color/transparent"
-            android:onClick="showPopup"
-              android:alpha="0.8"
-            android:src="@drawable/ic_music" />
-        
-        <ImageButton
-            android:id="@+id/undo_button"
-            
             android:layout_width="@dimen/editingScr_buttons_width"
             android:layout_height="@dimen/editingScr_buttons_height"
-            android:src="@drawable/ic_undo"
-            android:background="@android:color/transparent"
+            android:layout_marginTop="0.5dp"
             android:alpha="0.8"
+            android:background="@android:color/transparent"
+            android:onClick="showPopup"
+            android:src="@drawable/ic_music" />
+
+        <ImageButton
+            android:id="@+id/undo_button"
+            android:layout_width="@dimen/editingScr_buttons_width"
+            android:layout_height="@dimen/editingScr_buttons_height"
+            android:alpha="0.3"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_undo"
             android:text="Undo" />
-        
-          <ImageButton
-              android:id="@+id/share_button"
-             
-               android:layout_width="@dimen/editingScr_buttons_width"
+
+        <ImageButton
+            android:id="@+id/share_button"
+            android:layout_width="@dimen/editingScr_buttons_width"
             android:layout_height="@dimen/editingScr_buttons_height"
             android:alpha="0.8"
-              android:background="@android:color/transparent"
-              android:src="@drawable/ic_share"
-              
-              android:text="Reset" />
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_share"
+            android:text="Reset" />
 
         <ImageButton
             android:id="@+id/save_button"
-           android:alpha="0.8"
-             android:layout_width="@dimen/editingScr_buttons_width"
+            android:layout_width="@dimen/editingScr_buttons_width"
             android:layout_height="@dimen/editingScr_buttons_height"
+            android:alpha="0.8"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_save"
             android:text="Save" />
 
         <ImageButton
             android:id="@+id/settings_button"
-          android:alpha="0.8"
-             android:layout_width="@dimen/editingScr_buttons_width"
+            android:layout_width="@dimen/editingScr_buttons_width"
             android:layout_height="@dimen/editingScr_buttons_height"
+            android:alpha="0.8"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_settings"
             android:text="ic_setting" />
-        
     </LinearLayout>
 
-  
-
-     <LinearLayout
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
         android:layout_alignParentLeft="true"
-          android:layout_alignParentTop="true"
+        android:layout_alignParentTop="true"
+        android:background="#55E4287C"
         android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/button6"
-            style="?android:attr/buttonStyleSmall"
+        <ImageButton
+            android:id="@+id/imageButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="showPopup"
-            android:text="AT" />
+            android:src="@drawable/ic_addjustment" />
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_addjustment" />
+
+        <ImageButton
+            android:id="@+id/effect_button"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="showThemesMenu"
+            android:alpha="0.8"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_effects" />
+
+        <ImageButton
+            android:id="@+id/adjustment_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_addjustment" />
 
         <Button
             android:id="@+id/button"
@@ -119,5 +133,13 @@
             android:layout_height="wrap_content"
             android:text="VT" />
     </LinearLayout>
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/linearLayout2"
+        layout="@layout/themes"
+        android:visibility="invisible" />
 
 </RelativeLayout>
