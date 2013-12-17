@@ -1,10 +1,6 @@
 package com.app.filmit;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-
-import com.app.filmit.utils.Constants;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -14,31 +10,29 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.provider.BaseColumns;
 import android.provider.MediaStore;
-import android.util.AttributeSet;
 import android.util.Log;
-import android.view.InflateException;
 import android.view.LayoutInflater;
-import android.view.LayoutInflater.Factory;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.app.filmit.utils.Constants;
 
 public class IntroScreenActivity extends Activity {
 
+	Context context;
 	public class VideoInfo {
 		public Bitmap bitmap;
 		public String name;
@@ -58,6 +52,7 @@ public class IntroScreenActivity extends Activity {
 
 		GridView gridview = (GridView) findViewById(R.id.gridview);
 		gridview.setAdapter(new ImageAdapter(this));
+		context = this;
 
 		String targetPath = Environment.getExternalStorageDirectory()
 				.getAbsolutePath();
@@ -80,8 +75,22 @@ public class IntroScreenActivity extends Activity {
 				
 			}
 		});
+		
+		addButtonListeners();
 	}
 	
+
+	private void addButtonListeners() {
+		findViewById(R.id.video_capture_button).setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(context, CaptureScreenActivity.class));
+			}
+			
+		});
+	}
+
 
 	private void loaddata() {
 		ContentResolver cr = getContentResolver();

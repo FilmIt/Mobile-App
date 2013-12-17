@@ -13,15 +13,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AbsoluteLayout;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.MediaController;
 import android.widget.PopupMenu;
+import android.widget.RelativeLayout;
 import android.widget.VideoView;
 
 public class EditScreenActivity extends Activity {
 	VideoView videoView;
 	MediaController mediaController;
 	PopupMenu popup;
+	boolean themeMenuOpen = false;
 	
 
 	@Override
@@ -39,7 +43,7 @@ public class EditScreenActivity extends Activity {
 	
 
 	private void addButtonListeners() {
-		Button saveButton = (Button) findViewById(R.id.save_button);
+		ImageButton saveButton = (ImageButton) findViewById(R.id.save_button);
 		saveButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				showSaveDialg();
@@ -114,5 +118,18 @@ public class EditScreenActivity extends Activity {
 	    inflater.inflate(R.menu.actions, popup.getMenu());
 	    popup.show();
 	}
-
+	
+	public void showThemesMenu(View v) {   
+		 if(!themeMenuOpen){
+		  RelativeLayout tm = (RelativeLayout) findViewById(R.id.effects_layout);
+		  tm.setVisibility(View.VISIBLE);
+		  themeMenuOpen = true;
+		 }
+		 else{
+			 RelativeLayout tm = (RelativeLayout) findViewById(R.id.effects_layout);
+			 tm.setVisibility(View.INVISIBLE);
+			 themeMenuOpen = false;
+		 }
+}
+	 
 }

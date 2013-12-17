@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.hardware.Camera;
@@ -22,6 +21,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class CaptureScreenActivity extends Activity {
@@ -88,7 +88,7 @@ public class CaptureScreenActivity extends Activity {
 	}
 	
 	void setButtonListeners() {
-		final Button recordButton = (Button) findViewById(R.id.button_capture);
+		final ImageButton recordButton = (ImageButton) findViewById(R.id.button_capture);
 		recordButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -100,10 +100,10 @@ public class CaptureScreenActivity extends Activity {
 		               // releaseCamera();
 		                
 		                // inform the user that recording has stopped
-		                recordButton.setText("Record!");
+		                recordButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_record));
 		                isRecording = false;
 		                
-		                Intent i = new Intent(getApplicationContext(), EditScreenActivity.class);
+		                Intent i = new Intent(getApplicationContext(), VideoPlayerActivity.class);
 		                i.putExtra("path", outputFilePath);
 		                startActivity(i);
 		            } 
@@ -116,7 +116,7 @@ public class CaptureScreenActivity extends Activity {
 
 		                    // inform the user that recording has started
 		                    Toast.makeText(getBaseContext(), "Recording started!", Toast.LENGTH_SHORT).show();
-		                    recordButton.setText("Stop!");
+		                    recordButton.setImageDrawable(getResources().getDrawable(R.drawable.ic_stop));
 		                    isRecording = true;
 		                } else {
 		                    // prepare didn't work, release the camera
@@ -129,7 +129,7 @@ public class CaptureScreenActivity extends Activity {
 			
 		});
 	
-		final Button cameraTypeButton = (Button) findViewById(R.id.camera_front_back);
+		final ImageButton cameraTypeButton = (ImageButton) findViewById(R.id.camera_front_back);
 		if(camera.getNumberOfCameras()<=1) {
 			cameraTypeButton.setEnabled(false);
 		}
@@ -139,12 +139,10 @@ public class CaptureScreenActivity extends Activity {
 				public void onClick(View v) {
 					if(isCameraBack) {
 						camId = Camera.CameraInfo.CAMERA_FACING_FRONT;
-						cameraTypeButton.setText("Back Camera");
 						isCameraBack = false;
 						
 					}
 					else {
-						cameraTypeButton.setText("Front Camera");
 						camId = Camera.CameraInfo.CAMERA_FACING_BACK;
 						isCameraBack = true;
 						
@@ -227,7 +225,7 @@ public class CaptureScreenActivity extends Activity {
 	        if (requestCode == VIDEO_PICK) {
 	            if (resultCode == Activity.RESULT_OK) {
 	                Uri path = data.getData();
-	                Intent intent = new Intent(this, EditScreenActivity.class);
+	                Intent intent = new Intent(this, VideoPlayerActivity.class);
 	                intent.putExtra("path", path.toString());
 	                startActivity(intent);
 	            } 

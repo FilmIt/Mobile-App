@@ -10,5 +10,6 @@
     <string name="title_activity_video_frames">VideoFramesActivity</string>
     <string name="title_activity_video_play">VideoPlayActivity</string>
     <string name="description">Media Controls</string>
+    <string name="title_activity_slider_bar_edit">SliderBarEditActivity</string>
 
 </resources>

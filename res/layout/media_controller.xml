@@ -30,7 +30,7 @@
         <ImageButton android:id="@+id/prev"
             style="@android:style/MediaButton.Previous"
             android:background="@color/pink"
-            android:alpha="0.5"
+            android:alpha="0.7"
             android:contentDescription="@string/description" />
         
         <ImageButton android:id="@+id/rew"
@@ -41,17 +41,20 @@
         
         <ImageButton android:id="@+id/pause"
              android:background="@color/pink"
+             android:alpha="0.7"
             style="@android:style/MediaButton.Play"
             android:contentDescription="@string/description" />
         
         <ImageButton android:id="@+id/ffwd"
             style="@android:style/MediaButton.Ffwd"
              android:background="@color/pink"
+             android:alpha="0.7"
             android:contentDescription="@string/description" />
         
         <ImageButton android:id="@+id/next"
             style="@android:style/MediaButton.Next"
              android:background="@color/pink"
+             android:alpha="0.7"
             android:contentDescription="@string/description" />
 
     </LinearLayout>

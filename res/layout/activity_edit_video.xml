@@ -9,17 +9,31 @@
     android:paddingTop="0dp"
     tools:context=".EditScreenActivity" >
 
-    <VideoView
-        android:id="@+id/videoView1"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerInParent="true"
-        android:gravity="center" />
+  <LinearLayout 
+    android:id="@+id/video_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:gravity="center_horizontal|center_vertical"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/videoSurfaceContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <SurfaceView
+            android:id="@+id/videoSurface"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+
+</LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="#55E4287C"
@@ -75,29 +89,20 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginLeft="2dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="#55E4287C"
         android:orientation="vertical" >
 
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_addjustment" />
-
-        <ImageButton
-            android:id="@+id/imageButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_addjustment" />
-
+    
+   
         <ImageButton
             android:id="@+id/effect_button"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
+            android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:onClick="showThemesMenu"
             android:alpha="0.8"
@@ -106,15 +111,18 @@
 
         <ImageButton
             android:id="@+id/adjustment_button"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:layout_marginTop="10dp"
+              android:alpha="0.8"
             android:src="@drawable/ic_addjustment" />
 
         <Button
             android:id="@+id/button"
             style="?android:attr/buttonStyleSmall"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="EF" />
@@ -122,6 +130,7 @@
         <Button
             android:id="@+id/button8"
             style="?android:attr/buttonStyleSmall"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CE" />
@@ -129,6 +138,7 @@
         <Button
             android:id="@+id/button4"
             style="?android:attr/buttonStyleSmall"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="VT" />
