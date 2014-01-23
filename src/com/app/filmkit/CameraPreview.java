@@ -1,4 +1,4 @@
-package com.app.filmit;
+package com.app.filmkit;
 
 import java.io.IOException;
 

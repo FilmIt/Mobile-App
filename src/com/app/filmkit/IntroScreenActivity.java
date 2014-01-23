@@ -1,4 +1,4 @@
-package com.app.filmit;
+package com.app.filmkit;
 
 import java.util.ArrayList;
 
@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.BaseColumns;
@@ -28,11 +29,13 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.app.filmit.utils.Constants;
+import com.app.filmkit.utils.Constants;
 
 public class IntroScreenActivity extends Activity {
 
 	Context context;
+	static final int REQUEST_VIDEO_CAPTURE = 1;
+	
 	public class VideoInfo {
 		public Bitmap bitmap;
 		public String name;
@@ -60,16 +63,11 @@ public class IntroScreenActivity extends Activity {
 		Toast.makeText(getApplicationContext(), targetPath, Toast.LENGTH_LONG)
 				.show();
 		loaddata();
-		/*
-		 * File targetDirector = new File(targetPath);
-		 * 
-		 * File[] files = targetDirector.listFiles(); for (File file : files) {
-		 * myGallery.addView(insertPhoto(file.getAbsolutePath())); }
-		 */
+		
 		gridview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
-				 Intent intent = new Intent(getApplicationContext(), VideoPlayerActivity.class);
+				 Intent intent = new Intent(getApplicationContext(), EditScreenActivity.class);
 	                intent.putExtra("path", videos.get(position).path);
 	                startActivity(intent);
 				
@@ -85,13 +83,22 @@ public class IntroScreenActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(context, CaptureScreenActivity.class));
+				 dispatchTakeVideoIntent();
+				//startActivity(new Intent(context, CaptureScreenActivity.class));
 			}
 			
 		});
 	}
 
 
+
+	private void dispatchTakeVideoIntent() {
+	    Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+	    if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
+	        startActivityForResult(takeVideoIntent, REQUEST_VIDEO_CAPTURE);
+	    }
+	}
+	
 	private void loaddata() {
 		ContentResolver cr = getContentResolver();
 		String[] proj = { BaseColumns._ID,
@@ -197,4 +204,32 @@ public class IntroScreenActivity extends Activity {
 		}
 
 	}
-	}	
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	    if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == RESULT_OK) {
+	        Uri videoUri = data.getData();
+	        Intent i = new Intent(getApplicationContext(), VideoPlayerActivity.class);
+	        Log.d(Constants.TAG, "Path in IntroScreen = " + videoUri.getPath());
+	        String filePath = getRealPathFromURI(this, videoUri);
+	        Log.d(Constants.TAG, "File path in IntroScreen = " + filePath);
+            i.putExtra("path", filePath);
+            startActivity(i);
+	    }
+	}
+	
+	public String getRealPathFromURI(Context context, Uri contentUri) {
+		  Cursor cursor = null;
+		  try { 
+		    String[] proj = { MediaStore.Images.Media.DATA };
+		    cursor = context.getContentResolver().query(contentUri,  proj, null, null, null);
+		    int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+		    cursor.moveToFirst();
+		    return cursor.getString(column_index);
+		  } finally {
+		    if (cursor != null) {
+		      cursor.close();
+		    }
+		  }
+		}
+}	

@@ -1,4 +1,4 @@
-package com.app.filmit;
+package com.app.filmkit;
 
 import java.io.IOException;
 
@@ -22,7 +22,7 @@ import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
-import com.app.filmit.utils.Constants;
+import com.app.filmkit.utils.Constants;
 
 public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callback, MediaPlayer.OnErrorListener, MediaPlayer.OnPreparedListener, VideoControllerView.MediaPlayerControl {
 
@@ -41,9 +41,10 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
         Log.d(Constants.TAG, "In OnCreate");
         Intent intent = getIntent();
         path = intent.getExtras().getString("path");
+        Log.d(Constants.TAG, "Path in VideoPlayerActivity = " + path);
         videoSurface = (SurfaceView) findViewById(R.id.videoSurface);
         mediaMetadataRetriever = new MediaMetadataRetriever();
-        mediaMetadataRetriever.setDataSource(path);
+        mediaMetadataRetriever.setDataSource(this, Uri.parse(path));
         SurfaceHolder videoHolder = videoSurface.getHolder();
         videoHolder.addCallback(this);      
         addButtonListeners();
@@ -84,7 +85,7 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
 		findViewById(R.id.noise_button).setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				player.pause();
-				goToImageEditScreen(Constants.FLEA);
+				goToImageEditScreen(Constants.FLEA, false);
 			}
 		
 		});
@@ -93,7 +94,7 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
 			@Override
 			public void onClick(View v) {
 				player.pause();
-				goToImageEditScreen(Constants.SLIDER_EFFECT);
+				goToImageEditScreen(Constants.SLIDER_EFFECT, true);
 			}
 			
 		});
@@ -102,7 +103,7 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
 			@Override
 			public void onClick(View v) {
 				player.pause();
-				goToImageEditScreen(Constants.INVERT);
+				goToImageEditScreen(Constants.INVERT, false);
 			}
 			
 		});
@@ -111,7 +112,7 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
 			@Override
 			public void onClick(View v) {
 				player.pause();
-				goToImageEditScreen(Constants.GREY_SCALE);
+				goToImageEditScreen(Constants.GREY_SCALE, false);
 			}
 			
 		});
@@ -119,12 +120,14 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
 		
 	}
 	
-	protected void goToImageEditScreen(int effectType) {
+	protected void goToImageEditScreen(int effectType, boolean seekbar) {
 		
 		int pos = player.getCurrentPosition();
 		bitmap = mediaMetadataRetriever.getFrameAtTime( pos * 1000); //unit in microsecond
 		Intent intent = new Intent(this.getApplicationContext(),ImageEditActivity.class);
+		intent.putExtra("path", path);
 		intent.putExtra("effect", effectType);
+		intent.putExtra("seekbar", seekbar);
 		player.stop();
 		
 		this.startActivity(intent);
@@ -180,13 +183,15 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
     	Log.d(Constants.TAG, "In SurfaceChanged");
-    	player.setDisplay(holder);
-        player.prepareAsync();
+    	
+        
     }
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
     	Log.d(Constants.TAG, "In SurfaceCreated");
+    	player.setDisplay(holder);
+    	player.prepareAsync();
     }
 
     @Override

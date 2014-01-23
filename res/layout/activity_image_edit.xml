@@ -22,7 +22,7 @@
         android:layout_width="300dp"
         android:layout_height="50dip"
         android:layout_alignParentLeft="true"
-        android:max="100"
+        android:max="250"
         android:alpha="0.5"
         android:background="@color/pink"
         android:thumb="@drawable/ic_slider"

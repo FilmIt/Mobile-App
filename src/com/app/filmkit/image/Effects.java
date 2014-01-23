@@ -1,8 +1,6 @@
-package com.example.image_effects;
+package com.app.filmkit.image;
 
-import java.util.Random;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 
 public interface Effects {
 	public Bitmap Flea(Bitmap image);

@@ -1,4 +1,4 @@
-package com.filmit.model;
+package com.app.filmit.model;
 
 import android.graphics.Bitmap;
 

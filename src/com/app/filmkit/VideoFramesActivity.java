@@ -1,7 +1,7 @@
-package com.app.filmit;
+package com.app.filmkit;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 
 public class VideoFramesActivity extends Activity {
@@ -19,5 +19,5 @@ public class VideoFramesActivity extends Activity {
 		return true;
 	}
 
-	
+	 
 }

@@ -1,4 +1,4 @@
-package com.app.filmit;
+package com.app.filmkit;
 /*
  * Copyright (C) 2006 The Android Open Source Project
  *
@@ -15,6 +15,10 @@ package com.app.filmit;
  * limitations under the License.
  */
 
+
+import java.lang.ref.WeakReference;
+import java.util.Formatter;
+import java.util.Locale;
 
 import android.content.Context;
 import android.os.Handler;
@@ -33,10 +37,6 @@ import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-
-import java.lang.ref.WeakReference;
-import java.util.Formatter;
-import java.util.Locale;
 
 /**
  * A view containing controls for a MediaPlayer. Typically contains the

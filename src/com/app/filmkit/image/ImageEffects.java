@@ -1,4 +1,4 @@
-package com.example.image_effects;
+package com.app.filmkit.image;
 
 import java.util.Random;
 
