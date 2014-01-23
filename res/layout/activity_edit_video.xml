@@ -30,126 +30,126 @@
 
 </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:background="#55E4287C"
-        android:orientation="vertical" >
+<!--     <LinearLayout -->
+<!--         android:id="@+id/linearLayout1" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="match_parent" -->
+<!--         android:layout_alignParentRight="true" -->
+<!--         android:layout_alignParentTop="true" -->
+<!--         android:background="#55E4287C" -->
+<!--         android:orientation="vertical" > -->
 
-        <ImageButton
-            android:id="@+id/music_button"
-            android:layout_width="@dimen/editingScr_buttons_width"
-            android:layout_height="@dimen/editingScr_buttons_height"
-            android:layout_marginTop="0.5dp"
-            android:alpha="0.8"
-            android:background="@android:color/transparent"
-            android:onClick="showPopup"
-            android:src="@drawable/ic_music" />
+<!--         <ImageButton -->
+<!--             android:id="@+id/music_button" -->
+<!--             android:layout_width="@dimen/editingScr_buttons_width" -->
+<!--             android:layout_height="@dimen/editingScr_buttons_height" -->
+<!--             android:layout_marginTop="0.5dp" -->
+<!--             android:alpha="0.8" -->
+<!--             android:background="@android:color/transparent" -->
+<!--             android:onClick="showPopup" -->
+<!--             android:src="@drawable/ic_music" /> -->
 
-        <ImageButton
-            android:id="@+id/undo_button"
-            android:layout_width="@dimen/editingScr_buttons_width"
-            android:layout_height="@dimen/editingScr_buttons_height"
-            android:alpha="0.3"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_undo"
-            android:text="Undo" />
+<!--         <ImageButton -->
+<!--             android:id="@+id/undo_button" -->
+<!--             android:layout_width="@dimen/editingScr_buttons_width" -->
+<!--             android:layout_height="@dimen/editingScr_buttons_height" -->
+<!--             android:alpha="0.3" -->
+<!--             android:background="@android:color/transparent" -->
+<!--             android:src="@drawable/ic_undo" -->
+<!--             android:text="Undo" /> -->
 
-        <ImageButton
-            android:id="@+id/share_button"
-            android:layout_width="@dimen/editingScr_buttons_width"
-            android:layout_height="@dimen/editingScr_buttons_height"
-            android:alpha="0.8"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_share"
-            android:text="Reset" />
+<!--         <ImageButton -->
+<!--             android:id="@+id/share_button" -->
+<!--             android:layout_width="@dimen/editingScr_buttons_width" -->
+<!--             android:layout_height="@dimen/editingScr_buttons_height" -->
+<!--             android:alpha="0.8" -->
+<!--             android:background="@android:color/transparent" -->
+<!--             android:src="@drawable/ic_share" -->
+<!--             android:text="Reset" /> -->
 
-        <ImageButton
-            android:id="@+id/save_button"
-            android:layout_width="@dimen/editingScr_buttons_width"
-            android:layout_height="@dimen/editingScr_buttons_height"
-            android:alpha="0.8"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_save"
-            android:text="Save" />
+<!--         <ImageButton -->
+<!--             android:id="@+id/save_button" -->
+<!--             android:layout_width="@dimen/editingScr_buttons_width" -->
+<!--             android:layout_height="@dimen/editingScr_buttons_height" -->
+<!--             android:alpha="0.8" -->
+<!--             android:background="@android:color/transparent" -->
+<!--             android:src="@drawable/ic_save" -->
+<!--             android:text="Save" /> -->
 
-        <ImageButton
-            android:id="@+id/settings_button"
-            android:layout_width="@dimen/editingScr_buttons_width"
-            android:layout_height="@dimen/editingScr_buttons_height"
-            android:alpha="0.8"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_settings"
-            android:text="ic_setting" />
-    </LinearLayout>
+<!--         <ImageButton -->
+<!--             android:id="@+id/settings_button" -->
+<!--             android:layout_width="@dimen/editingScr_buttons_width" -->
+<!--             android:layout_height="@dimen/editingScr_buttons_height" -->
+<!--             android:alpha="0.8" -->
+<!--             android:background="@android:color/transparent" -->
+<!--             android:src="@drawable/ic_settings" -->
+<!--             android:text="ic_setting" /> -->
+<!--     </LinearLayout> -->
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="2dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="#55E4287C"
-        android:orientation="vertical" >
+<!--     <LinearLayout -->
+<!--         android:id="@+id/linearLayout2" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="match_parent" -->
+<!--         android:layout_marginLeft="2dp" -->
+<!--         android:layout_alignParentLeft="true" -->
+<!--         android:layout_alignParentTop="true" -->
+<!--         android:background="#55E4287C" -->
+<!--         android:orientation="vertical" > -->
 
     
    
-        <ImageButton
-            android:id="@+id/effect_button"
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:onClick="showThemesMenu"
-            android:alpha="0.8"
-            android:background="@android:color/transparent"
-            android:src="@drawable/ic_effects" />
+<!--         <ImageButton -->
+<!--             android:id="@+id/effect_button" -->
+<!--             android:layout_marginTop="10dp" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_gravity="center" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:onClick="showThemesMenu" -->
+<!--             android:alpha="0.8" -->
+<!--             android:background="@android:color/transparent" -->
+<!--             android:src="@drawable/ic_effects" /> -->
 
-        <ImageButton
-            android:id="@+id/adjustment_button"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:layout_marginTop="10dp"
-              android:alpha="0.8"
-            android:src="@drawable/ic_addjustment" />
+<!--         <ImageButton -->
+<!--             android:id="@+id/adjustment_button" -->
+<!--             android:layout_gravity="center" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:background="@android:color/transparent" -->
+<!--             android:layout_marginTop="10dp" -->
+<!--               android:alpha="0.8" -->
+<!--             android:src="@drawable/ic_addjustment" /> -->
 
-        <Button
-            android:id="@+id/button"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EF" />
+<!--         <Button -->
+<!--             android:id="@+id/button" -->
+<!--             style="?android:attr/buttonStyleSmall" -->
+<!--             android:layout_gravity="center" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text="EF" /> -->
 
-        <Button
-            android:id="@+id/button8"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CE" />
+<!--         <Button -->
+<!--             android:id="@+id/button8" -->
+<!--             style="?android:attr/buttonStyleSmall" -->
+<!--             android:layout_gravity="center" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text="CE" /> -->
 
-        <Button
-            android:id="@+id/button4"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="VT" />
-    </LinearLayout>
+<!--         <Button -->
+<!--             android:id="@+id/button4" -->
+<!--             style="?android:attr/buttonStyleSmall" -->
+<!--             android:layout_gravity="center" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:text="VT" /> -->
+<!--     </LinearLayout> -->
 
-    <include
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/linearLayout2"
-        layout="@layout/themes"
-        android:visibility="invisible" />
+<!--     <include -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_alignParentTop="true" -->
+<!--         android:layout_toRightOf="@+id/linearLayout2" -->
+<!--         layout="@layout/themes" -->
+<!--         android:visibility="invisible" /> -->
 
 </RelativeLayout>

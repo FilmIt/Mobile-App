@@ -305,6 +305,14 @@ public class EditScreenActivity extends Activity {
 	     protected void onPostExecute(Boolean result) {
 	         if(progDialog !=null && progDialog.isShowing()) {
 	        	 progDialog.dismiss();
+	        	 Toast.makeText(getApplicationContext(), "Video saved in /dcim/Film Kit/...", Toast.LENGTH_LONG).show();
+	        	 
+	        	 Intent intent = new Intent(getApplicationContext(),
+	     				IntroScreenActivity.class);
+	     		intent.putExtra("myFolder", false);
+	     		
+	     		startActivity(intent);
+	        	 
 	         }
 	     }
 

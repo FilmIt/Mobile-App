@@ -18,9 +18,9 @@ public class Constants {
 	public static enum EffectType{FLEA, TINT, GREY_SCALE, INVERT, CONTRAST, BRIGHTNESS, PIXELLATE, OPACITY }
 
 	public static File getMyFolderDir() {
-	    // Get the directory for the user's public pictures directory.
+	    // Get the directory for the user's public movies directory.
 	    File file = new File(Environment.getExternalStoragePublicDirectory(
-	            Environment.DIRECTORY_MOVIES), "Film Kit");
+	            Environment.DIRECTORY_DCIM), "Film Kit");
 	    if (!file.mkdirs()) {
 	        Log.e(Constants.LOG, "Directory not created");
 	    }

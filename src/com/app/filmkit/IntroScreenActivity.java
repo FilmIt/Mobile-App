@@ -12,7 +12,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -27,7 +26,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.app.filmkit.utils.Constants;
 
@@ -35,40 +33,52 @@ public class IntroScreenActivity extends Activity {
 
 	Context context;
 	static final int REQUEST_VIDEO_CAPTURE = 1;
-	
+	boolean allVids = true;
 	public class VideoInfo {
 		public Bitmap bitmap;
 		public String name;
 		public String path;
+		public boolean isAppFolder = false;
 		public VideoInfo(Bitmap b, String n, String pa) {
 			bitmap = b;
 			name = n;
 			path = pa;
 		}
 	}
-	ArrayList<VideoInfo> videos = new ArrayList<VideoInfo>();
+	
+	ArrayList<VideoInfo> allVideos = new ArrayList<VideoInfo>();
+	ArrayList<VideoInfo> myFolderVideos = new ArrayList<VideoInfo>();
+	private ImageAdapter allAdapter;
+	private ImageAdapter myFolderAdapter;
+	private GridView gridview;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_intro_screen);
-
-		GridView gridview = (GridView) findViewById(R.id.gridview);
-		gridview.setAdapter(new ImageAdapter(this));
 		context = this;
-
-		String targetPath = Environment.getExternalStorageDirectory()
-				.getAbsolutePath();
-
-		Toast.makeText(getApplicationContext(), targetPath, Toast.LENGTH_LONG)
-				.show();
+		
 		loaddata();
 		
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			allVids = extras.getBoolean("myFolder");
+		}
+		
+		allAdapter = new ImageAdapter(this, allVideos);
+		myFolderAdapter = new ImageAdapter(this, myFolderVideos);
+		gridview = (GridView) findViewById(R.id.gridview);
+		if(allVids)
+			gridview.setAdapter(allAdapter);
+		else 
+			gridview.setAdapter(myFolderAdapter);
+		
+	
 		gridview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v,
 					int position, long id) {
-				 Intent intent = new Intent(getApplicationContext(), EditScreenActivity.class);
-	                intent.putExtra("path", videos.get(position).path);
+				 Intent intent = new Intent(getApplicationContext(), VideoPlayerActivity.class);
+	                intent.putExtra("path", allVideos.get(position).path);
 	                startActivity(intent);
 				
 			}
@@ -79,6 +89,7 @@ public class IntroScreenActivity extends Activity {
 	
 
 	private void addButtonListeners() {
+		
 		findViewById(R.id.video_capture_button).setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -86,7 +97,26 @@ public class IntroScreenActivity extends Activity {
 				 dispatchTakeVideoIntent();
 				//startActivity(new Intent(context, CaptureScreenActivity.class));
 			}
-			
+		});
+		
+		findViewById(R.id.folder_button).setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if(allVids) {
+					gridview.setAdapter(allAdapter);
+					myFolderAdapter.notifyDataSetChanged();
+				}
+				else  {
+					gridview.setAdapter(myFolderAdapter);
+					allAdapter.notifyDataSetChanged();
+				
+				}
+				
+				 gridview.invalidateViews();
+				 
+				 allVids = !allVids;
+			}
 		});
 	}
 
@@ -103,9 +133,23 @@ public class IntroScreenActivity extends Activity {
 		ContentResolver cr = getContentResolver();
 		String[] proj = { BaseColumns._ID,
 				MediaStore.Video.Media.DISPLAY_NAME , 
-				MediaStore.Video.Media.DATA};
-		String selection = "" + MediaStore.Video.Media.DURATION + "<= " + Constants.DURATION_LIMIT;
-		Cursor c = cr.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, proj,
+				MediaStore.Video.Media.DATA,
+		};
+		
+		
+		Uri queryPath = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+		String selection  = "";
+		
+//		if(true) {
+//		 selection = "" + MediaStore.Video.Media.DURATION + "<= " + Constants.DURATION_LIMIT 
+//		+ " AND " + MediaStore.Video.Media.DATA + " LIKE " + "'%Film Kit%'";
+//		}
+//		
+		
+			selection = "" + MediaStore.Video.Media.DURATION + "<= " + Constants.DURATION_LIMIT ;
+		
+		
+		Cursor c = cr.query(queryPath, proj,
 				selection, null, null);
 		
 		if (c.moveToFirst()) {
@@ -114,26 +158,26 @@ public class IntroScreenActivity extends Activity {
 				
 				String name = c.getString(1);
 				String path = c.getString(2);
-				Log.d("NAME OF VIDEO:", name);
-				Log.d("PATH = ", path);
-				
+				Log.d("NAME OF VIDEO:", name + ", PATH = "  + path);
 				BitmapFactory.Options options=new BitmapFactory.Options();
-				options.inSampleSize = 1;
+				options.inSampleSize = 2;
 				Bitmap b = MediaStore.Video.Thumbnails.getThumbnail(cr, id, MediaStore.Video.Thumbnails.MICRO_KIND, options);
 				
 				//Bitmap b = ThumbnailUtils.createVideoThumbnail(path,MediaStore.Images.Thumbnails.MINI_KIND);
 				//Bitmap b = MediaStore.Video.Thumbnails.getThumbnail(cr, id,	MediaStore.Video.Thumbnails.MINI_KIND, null);
 				Log.d("*****My Thumbnail*****", "onCreate bitmap " + b);
-				if(b != null )
-					videos.add(new VideoInfo(b, name, path));
+				if(b != null ) {
+					VideoInfo video = new VideoInfo(b, name, path);
+					allVideos.add(video);
+					if(path.contains("/Film Kit/")) { // in my folder
+						myFolderVideos.add(video);
+					}
+				}
 
 			} while (c.moveToNext());
 		}
 		c.close();
 		
-		for(int i=0; i< videos.size(); i++) {
-			Log.d("VIDEO NAME FINAL:" , videos.get(i).name);
-		}
 
 	}
 
@@ -144,7 +188,6 @@ public class IntroScreenActivity extends Activity {
         actionBar.hide();
 		getMenuInflater().inflate(R.menu.intro_screen, menu);
 		
-
 		return true;
 	}
 	
@@ -166,10 +209,12 @@ public class IntroScreenActivity extends Activity {
 
 	public class ImageAdapter extends BaseAdapter {
 		private Context mContext;
-
-		public ImageAdapter(Context c) {
+		ArrayList<VideoInfo> videos;
+		public ImageAdapter(Context c, ArrayList<VideoInfo> videos) {
 			mContext = c;
+			this.videos = videos;
 		}
+		
 
 		public int getCount() {
 			return videos.size();
@@ -187,11 +232,12 @@ public class IntroScreenActivity extends Activity {
 		public View getView(int position, View convertView, ViewGroup parent) {
 
 			View v;
-		    if (convertView == null) {  // if it's not recycled, initialize some attributes
-		        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(     Context.LAYOUT_INFLATER_SERVICE );
+			  LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(     Context.LAYOUT_INFLATER_SERVICE );
 		        v = inflater.inflate(R.layout.gridview_element, parent, false);
+		    if (convertView == null) {  // if it's not recycled, initialize some attributes
+		      
 		    } else {
-		        v = (View) convertView;
+		      //  v = (View) convertView;
 		    }
 		   
 		    ImageView image = (ImageView)v.findViewById(R.id.thumnail);

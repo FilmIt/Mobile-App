@@ -3,8 +3,6 @@ package com.app.filmkit;
 import java.io.IOException;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.AudioManager;
@@ -13,14 +11,14 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
 
 import com.app.filmkit.utils.Constants;
 
@@ -47,7 +45,7 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
         mediaMetadataRetriever.setDataSource(this, Uri.parse(path));
         SurfaceHolder videoHolder = videoSurface.getHolder();
         videoHolder.addCallback(this);      
-        addButtonListeners();
+        //addButtonListeners();
     }
     
     public void onResume() {
@@ -74,104 +72,19 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
     	
     }
 
-	private void addButtonListeners() {
-		findViewById(R.id.save_button).setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				showSaveDialg();
-			}
-		
-		});
-		
-		findViewById(R.id.noise_button).setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				player.pause();
-				goToImageEditScreen(Constants.FLEA, false);
-			}
-		
-		});
-		
-		findViewById(R.id.pixelate_button).setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				player.pause();
-				goToImageEditScreen(Constants.SLIDER_EFFECT, true);
-			}
-			
-		});
-		
-		findViewById(R.id.invert_button).setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				player.pause();
-				goToImageEditScreen(Constants.INVERT, false);
-			}
-			
-		});
-		
-		findViewById(R.id.greyscale_button).setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				player.pause();
-				goToImageEditScreen(Constants.GREY_SCALE, false);
-			}
-			
-		});
-		
-		
-	}
 	
-	protected void goToImageEditScreen(int effectType, boolean seekbar) {
-		
-		int pos = player.getCurrentPosition();
-		bitmap = mediaMetadataRetriever.getFrameAtTime( pos * 1000); //unit in microsecond
-		Intent intent = new Intent(this.getApplicationContext(),ImageEditActivity.class);
+	
+	protected void goToEditScreenActivity() {
+		Intent intent = new Intent(this.getApplicationContext(),EditScreenActivity.class);
 		intent.putExtra("path", path);
-		intent.putExtra("effect", effectType);
-		intent.putExtra("seekbar", seekbar);
 		player.stop();
-		
 		this.startActivity(intent);
 
 	}
 	
 	
-	protected void showSaveDialg() {
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-	    // Get the layout inflater
-	    LayoutInflater inflater = getLayoutInflater();
-
-	    // Inflate and set the layout for the dialog
-	    // Pass null as the parent view because its going in the dialog layout
-	    builder.setView(inflater.inflate(R.layout.dialog_save_effect, null))
-	    // Add action buttons
-	           .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-	               @Override
-	               public void onClick(DialogInterface dialog, int id) {
-	                   // Save Effect...
-	               }
-	           })
-	           .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-	               public void onClick(DialogInterface dialog, int id) {
-	                   //this.getDialog().cancel();
-	                   
-	               }
-	           });      
-	    builder.create();
-	    builder.show();
-		
-	}
-
-	public void showThemesMenu(View v) {
-		if (!themeMenuOpen) {
-			RelativeLayout tm = (RelativeLayout) findViewById(R.id.effects_layout);
-			tm.setVisibility(View.VISIBLE);
-			themeMenuOpen = true;
-		} else {
-			RelativeLayout tm = (RelativeLayout) findViewById(R.id.effects_layout);
-			tm.setVisibility(View.INVISIBLE);
-			themeMenuOpen = false;
-		}
-	}
+	
+	
 	
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -311,5 +224,25 @@ public class VideoPlayerActivity extends Activity implements SurfaceHolder.Callb
 		}
 		return true;
 	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.video_play, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle presses on the action bar items
+	    switch (item.getItemId()) {
+	        case R.id.action_edit:
+	        	goToEditScreenActivity();
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	
 
 }
